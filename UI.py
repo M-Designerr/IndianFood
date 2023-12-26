@@ -254,9 +254,9 @@ uploaded_image = st.file_uploader("Upload an image", type=["jpg", "png", "jpeg"]
 if uploaded_image is not None:
     top1_result, top5_results = classify_image(uploaded_image)
 
-    st.image(uploaded_image, caption="Uploaded Image", use_column_width=True)
-    st.subheader("Results:")
-    st.write(f"Top 1 Result: {top1_result}")
+    st.image(uploaded_image, caption="Uploaded Image", width=200)
+    st.subheader("Top 1 Results:")
+    st.write(f"{top1_result[-1]}")
     st.subheader("Top 3 Results:")
     for i, result in enumerate(top5_results):
-        st.write(f"{i + 1}: {result}")
+        st.write(f"{i + 1}: {result[-1]}")
